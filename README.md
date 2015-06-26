@@ -8,12 +8,12 @@ The list of rake tasks provided are:
 
 ```
 
-rake apply           # Apply Stack with Cloudformation script and parameters(And wait till complete - supports updates)
-rake delete          # Delete stack from CloudFormation(And wait till stack is complete)
-rake events          # Get the recent events from the stack
-rake outputs         # Get the outputs of stack
-rake recreate        # Recreate stack(runs delete & apply)
-rake status          # Get the deployed app status
+rake cloudformer:apply           # Apply Stack with Cloudformation script and parameters(And wait till complete - supports updates)
+rake cloudformer:delete          # Delete stack from CloudFormation(And wait till stack is complete)
+rake cloudformer:events          # Get the recent events from the stack
+rake cloudformer:outputs         # Get the outputs of stack
+rake cloudformer:recreate        # Recreate stack(runs delete & apply)
+rake cloudformer:status          # Get the deployed app status
 
 ```
 
@@ -120,12 +120,12 @@ Then, in your Rakefile add,
 
 You should then see following commands:
 
-    rake apply     # Apply Stack with Cloudformation script and parameters
-    rake delete    # Delete stack from CloudFormation
-    rake events    # Get the recent events from the stack
-    rake outputs   # Get the outputs of stack
-    rake recreate  # Recreate stack
-    rake status    # Get the deployed app status
+    rake cloudformer:apply     # Apply Stack with Cloudformation script and parameters
+    rake cloudformer:delete    # Delete stack from CloudFormation
+    rake cloudformer:events    # Get the recent events from the stack
+    rake cloudformer:outputs   # Get the outputs of stack
+    rake cloudformer:recreate  # Recreate stack
+    rake cloudformer:status    # Get the deployed app status
 
 Running `rake status` gives us:
 
@@ -133,7 +133,7 @@ Running `rake status` gives us:
       app - Not Deployed
     ================================================
 
-Running `rake apply` will create an environment or update existing depending on the nature of action requested in parameters:
+Running `rake cloudformer:apply` will create an environment or update existing depending on the nature of action requested in parameters:
 
     Initializing stack creation...
     ==================================================================================================
@@ -144,11 +144,11 @@ Running `rake apply` will create an environment or update existing depending on 
     2013-10-24 07:56:26 UTC - AWS::CloudFormation::Stack - CREATE_COMPLETE -
     ==================================================================================================
 
-Running `rake apply` again gives us:
+Running `rake cloudformer:apply` again gives us:
     
     No updates are to be performed.
 
-To remove the stack `rake delete` gives us:
+To remove the stack `rake cloudformer:delete` gives us:
 
     ==============================================================================================
     Attempting to delete stack - app
@@ -169,7 +169,7 @@ Attempts to delete a non-existing stack will result in:
     Stack not up.
     ==============================================
 
-To recreate the stack use `rake recreate`:
+To recreate the stack use `rake cloudformer:recreate`:
   
     =================================================================================================
     Attempting to delete stack - app
@@ -193,13 +193,13 @@ To recreate the stack use `rake recreate`:
     Server -  - 172.31.3.52
     =================================================================================================
 
-To see the stack outputs `rake outputs`:
+To see the stack outputs `rake cloudformer:outputs`:
     
     ==============================
     Server -  - 172.31.3.52
     ============================== 
 
-To see recent events on the stack `rake events`:
+To see recent events on the stack `rake cloudformer:events`:
     
     ==================================================================================================
     2013-10-24 08:06:31 UTC - AWS::CloudFormation::Stack - CREATE_IN_PROGRESS - User Initiated
