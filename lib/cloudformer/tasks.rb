@@ -16,16 +16,18 @@ module Cloudformer
 
     private
     def define_tasks
-      define_create_task
-      define_validate_task
-      define_delete_task
-      define_delete_with_stop_task
-      define_events_task
-      define_status_task
-      define_outputs_task
-      define_recreate_task
-      define_stop_task
-      define_start_task
+      namespace :cloudformer do
+        define_create_task
+        define_validate_task
+        define_delete_task
+        define_delete_with_stop_task
+        define_events_task
+        define_status_task
+        define_outputs_task
+        define_recreate_task
+        define_stop_task
+        define_start_task
+      end
     end
 
     def define_create_task
