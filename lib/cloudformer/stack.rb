@@ -146,6 +146,14 @@ class Stack
     puts "="*cols
   end
 
+  def validate(template)
+    response = @cf.validate_template(template)
+    return {
+      "valid" => response[:code].nil?,
+      "response" => response
+    }
+  end
+
   def update(template, parameters, capabilities)
     stack.update({
       :template => template,
